@@ -30,7 +30,6 @@ A GenAI-powered system that generates **cinematic Adobe Lightroom presets** by a
 │   ├── app.js
 │   ├── index.html
 │   └── style.css
-├── .env.example
 ├── README.md
 └── requirements.txt
 ```
@@ -94,3 +93,4 @@ Then visit `http://localhost:8080`
 ## License
 
 MIT License
+
