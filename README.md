@@ -90,7 +90,6 @@ Then visit `http://localhost:8080`
 **GET** `/download/{filename}`
 - Download generated preset
 
-## License
 
-MIT License
+
 
