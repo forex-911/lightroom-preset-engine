@@ -8,21 +8,31 @@ A GenAI-powered system that generates **cinematic Adobe Lightroom presets** by a
 - AI-powered semantic style inference
 - Deterministic Lightroom parameter generation
 - Lightroom `.xmp` preset export
-- FastAPI backend
+- FastAPI backend + Simple frontend
 
 ## Project Structure
 ```
 .
 ├── backend/
-│   ├── main.py
-│   ├── ai_layer.py
-│   ├── image_analysis.py
-│   └── preset_engine.py
-├── presets/
-│   └── generated/
-├── .env
-├── requirements.txt
-└── README.md
+│   ├── api/
+│   │   └── routes.py
+│   ├── services/
+│   │   ├── color_safety.py
+│   │   ├── feature_diff.py
+│   │   ├── image_analysis.py
+│   │   ├── lab_color_transfer.py
+│   │   ├── llm_service.py
+│   │   └── preset_generator.py
+│   ├── .env
+│   ├── config.py
+│   └── main.py
+├── frontend/
+│   ├── app.js
+│   ├── index.html
+│   └── style.css
+├── .env.example
+├── README.md
+└── requirements.txt
 ```
 
 ## Installation
@@ -36,7 +46,7 @@ pip install -r requirements.txt
 
 ## Configuration
 
-Create `.env` file:
+Create `.env` file in the `backend/` directory:
 ```
 GEMINI_API_KEY=your_api_key_here
 ```
@@ -44,19 +54,33 @@ GEMINI_API_KEY=your_api_key_here
 Create `.gitignore`:
 ```
 .env
+backend/.env
 venv/
 __pycache__/
 *.pyc
-presets/generated/*.xmp
+*.xmp
 ```
 
 ## Usage
+
+### Start Backend Server
 ```bash
-uvicorn backend.main:app --reload
+cd backend
+uvicorn main:app --reload
 ```
 
-- Server: `http://127.0.0.1:8000`
+- Backend API: `http://127.0.0.1:8000`
 - API Docs: `http://127.0.0.1:8000/docs`
+
+### Open Frontend
+
+Open `frontend/index.html` in your browser or serve it with:
+```bash
+cd frontend
+python -m http.server 8080
+```
+
+Then visit `http://localhost:8080`
 
 ## API Endpoints
 
