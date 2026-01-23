@@ -34,20 +34,6 @@ source venv/bin/activate  # Linux/Mac or venv\Scripts\activate for Windows
 pip install -r requirements.txt
 ```
 
-## Requirements
-
-Create `requirements.txt`:
-```
-fastapi
-uvicorn
-python-dotenv
-requests
-numpy
-opencv-python
-pillow
-scikit-image
-```
-
 ## Configuration
 
 Create `.env` file:
